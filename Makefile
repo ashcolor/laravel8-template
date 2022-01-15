@@ -5,7 +5,16 @@ build:
 copy-env:
 ifdef IP
 	cp .env.example .env
+ifeq ($(OS),Windows_NT)
+	sed -i -e 's/127.0.0.1/$(IP)/g' .env
+else
+ifeq ($(shell uname),Linux)
+	sed -i -e 's/127.0.0.1/$(IP)/g' .env
+endif
+ifeq ($(shell uname),Darwin)
 	sed -i '' -e 's/127.0.0.1/$(IP)/g' .env
+endif
+endif
 endif
 create-project:
 	@make copy-env
