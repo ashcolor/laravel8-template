@@ -81,7 +81,7 @@ composer-install:
 composer-update:
 	docker compose exec app composer update
 
-##### CakePHPコマンド #####
+##### Laravelコマンド #####
 # マイグレーションを適用
 migrate:
 	docker compose exec app php artisan migrate
