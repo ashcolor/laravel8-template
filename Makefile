@@ -70,7 +70,7 @@ log-db-watch:
 	docker compose logs --follow db
 web:
 	docker compose exec web ash
-app:
+ap:
 	docker compose exec app bash
 db:
 	docker compose exec db bash
